@@ -24,14 +24,26 @@ public class WhoExport {
 		return "NOT FOUND";
 	} 
 	
+	
+	public void listExportersTwoProducts(CSVParser parser , String exportItem1 , String exportItem2 ){
+		
+		     for(CSVRecord record : parser ){
+		    	 
+		    	 if(record.get("Exports").contains(exportItem1) && record.get("Exports").contains(exportItem2))
+		    		 System.out.println(record.get("Country")) ;
+		    	 
+		     }
+		
+	}
 	public void testAllMethod(){
 		
 		FileResource fr = new FileResource() ;
 		CSVParser parser = fr.getCSVParser();
 		
-		System.out.println(countryInfo(parser , "Germany"));
+	//	System.out.println(countryInfo(parser , "Germany"));
 		
-		parser = fr.getCSVParser();
+	//	parser = fr.getCSVParser();
+		listExportersTwoProducts( parser , "gold" , "diamonds" ) ; 
 		
 		//listExportersTwoProducts( parser , String exportItem1 , String exportItem2 ) ;
 		
